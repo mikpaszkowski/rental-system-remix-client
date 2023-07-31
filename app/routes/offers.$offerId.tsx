@@ -1,5 +1,5 @@
 import { LoaderArgs, json } from "@remix-run/node";
-import { Link, Outlet, useLoaderData } from "@remix-run/react";
+import { Link, useLoaderData } from "@remix-run/react";
 import defaultTokenImg from "../../public/images/token/default-token-img.jpg"
 import { Button } from "~/components/Button";
 export const loader = async ({ params }: LoaderArgs) => {
