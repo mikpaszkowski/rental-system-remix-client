@@ -1,4 +1,5 @@
-import defaultTokenImg from "../../public/images/avatars/default-token-img.png"
+import { useNavigate, useNavigation } from "@remix-run/react";
+import defaultTokenImg from "../../public/images/token/default-token-img.jpg"
 
 export interface ITokenOfferCardProps {
     name: string;
@@ -9,10 +10,11 @@ export interface ITokenOfferCardProps {
 }
 
 export const TokenOfferCard = (({dailyPrice, id, maxDuration, name, url}: ITokenOfferCardProps) => {
+    const navigate = useNavigate();
     return (
-        <div className="w-56 rounded-xl overflow-hidden mb-10">
-            <div className="token-image-card">
-                <img src={url || defaultTokenImg} alt="token-image" className="max-w-full"/>
+        <div className="w-56 rounded-xl overflow-hidden mb-10 cursor-pointer" onClick={() => navigate(`/offers/${id}`)}>
+            <div className="token-image-card h-44 overflow-hidden">
+                <img src={url || defaultTokenImg} alt="token-image" className="absolute max-w-full"/>
             </div>
 
             <div className="bg-light-purple px-3 pt-1 pb-2">

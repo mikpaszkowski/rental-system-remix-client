@@ -8,7 +8,7 @@ const OffersRoute = () => {
     return (
         <div>
             <ListNavbar />
-            <TokenOfferList />
+        <TokenOfferList />
             <Outlet />
         </div>
     )

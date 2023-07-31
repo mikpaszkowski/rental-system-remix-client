@@ -14,6 +14,7 @@ export default {
       'btn-secondary': '#353535',
       'btn-secondary-focus': '#242424',
       'shadow': '#00000073',
+      'dialog': '#000000d9',
     },
     fontFamily: {
       outfit: ['Outfit', 'sans-serif'],

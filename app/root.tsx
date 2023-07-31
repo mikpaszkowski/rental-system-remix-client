@@ -21,7 +21,7 @@ const fontLinks: LinkDescriptor[] = [
 export const links: LinksFunction = () => [{ rel: "stylesheet", href: stylesheet }, ...fontLinks];
 
 export default function App() {
-    const {pathname} = useLocation();
+    const { pathname } = useLocation();
     return (
         <html lang="en">
             <head>
@@ -31,8 +31,8 @@ export default function App() {
                 <link rel="icon" href="/_static/favicon.ico" />
                 <Meta />
             </head>
-            <body className={`bg-custom bg-no-repeat bg-cover bg-center w-screen h-screen ${pathname !== "/" ? 'dark-bg' : ''}`}>
-            <Navbar />
+            <body className={`bg-custom bg-no-repeat bg-cover bg-center w-screen h-screen relative ${pathname !== "/" ? 'dark-bg' : ''}`}>
+                <Navbar />
                 <Outlet />
                 <ScrollRestoration />
                 <Scripts />
