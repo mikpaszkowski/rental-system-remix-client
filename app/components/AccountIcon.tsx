@@ -10,11 +10,13 @@ import avatarNineth from "../../public/images/avatars/avatar-9.png"
 import avatarTenth from "../../public/images/avatars/avatar-10.png"
 import avatarEleventh from "../../public/images/avatars/avatar-11.png"
 import avatarTwelveth from "../../public/images/avatars/avatar-12.png"
+import { useNavigate } from "@remix-run/react"
 
 
 export const AccountIcon = () => {
+    const navigate = useNavigate();
     return (
-        <div className="flex flex-row items-center">
+        <div className="flex flex-row items-center cursor-pointer" onClick={() => navigate('/account')}>
             <div className="w-8 h-8 rounded-full overflow-hidden mr-3">
                 <img src={avatarFirst} alt="avatar-img" />
             </div>

@@ -6,6 +6,7 @@ body {
     position: relative;
     font-family: Outfit, sans-serif;
     padding: 50px 200px;
+    color: theme(colors.primary);
 }
 
 .dark-bg::after {
