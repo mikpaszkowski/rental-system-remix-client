@@ -17,9 +17,9 @@ const AccountTokenFormRoute = () => {
             <div className="bg-light-purple w-full h-1/2 py-8 px-24">
                 <TokenNameInfo offerId={offerId}
                                tokenId="0D15133A91686C5FA3D9F78BA5AAB9942056CDF4E45C4FAF709D7505E29D1FC9"/>
-                <div className="mt-10">
+                <div className="mt-6">
                     <input type="number"
-                           className="w-full bg-primary h-12 rounded-md px-4 text-secondary font-light placeholder:text-secondary mt-16"
+                           className="w-full bg-primary h-12 rounded-md px-4 text-secondary font-light placeholder:text-secondary mt-8"
                            placeholder="Maximal rental days" onChange={(event) => setCredentials(prevState => {
                         return {
                             ...prevState,
@@ -35,7 +35,7 @@ const AccountTokenFormRoute = () => {
                         }
                     })}/>
                     <Button name="Create offer" onClick={() => {
-                    }} className="w-full mt-16"/>
+                    }} className="w-full mt-12"/>
                 </div>
             </div>
         </SlideInDialogWrapper>

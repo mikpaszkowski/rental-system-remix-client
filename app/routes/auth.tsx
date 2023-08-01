@@ -1,6 +1,7 @@
 import {Outlet, useNavigate} from "@remix-run/react"
 import {useState} from "react";
 import {Button} from "~/components/Button";
+import {login} from "~/state/proxy";
 
 interface ICredentials {
     account: string;
@@ -15,8 +16,10 @@ const AuthRoute = () => {
     });
 
     const onSubmit = () => {
-        console.log(credentials);
-        navigate('/offers');
+        if (credentials && credentials.account && credentials.secret) {
+            login(credentials.account, credentials.secret);
+            navigate('/offers');
+        }
     }
     return (
         <div className="absolute flex flex-col justify-center items-center bg-shadow top-0 left-0 h-screen w-screen">

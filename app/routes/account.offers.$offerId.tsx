@@ -27,7 +27,7 @@ const AccountOfferDetailsRoute = () => {
                     <OfferLenderBadge/>
                 </div>
                 <input type="number"
-                       className="w-full bg-primary h-12 rounded-md px-4 text-secondary font-light placeholder:text-secondary mt-16"
+                       className="w-full bg-primary h-12 rounded-md px-4 text-secondary font-light placeholder:text-secondary mt-8"
                        placeholder="Rental days" onChange={(event) => setCredentials(prevState => {
                     return {
                         ...prevState,
@@ -35,13 +35,13 @@ const AccountOfferDetailsRoute = () => {
                     }
                 })}/>
                 <InputBottomLabel content="Maximal number of days to rent: 10"/>
-                <div className="mt-16">
+                <div className="mt-6">
                     <SummaryValueLine name="Daily price" value={500}/>
                     <LineBreak/>
-                    <SummaryValueLine name="Total amount" value={0} className="mt-6"/>
+                    <SummaryValueLine name="Total amount" value={0} className="mt-4"/>
                 </div>
                 <Button name="Request rental" onClick={() => {
-                }} className="w-full mt-16"/>
+                }} className="w-full mt-6"/>
             </DialogBottomWrapper>
         </SlideInDialogWrapper>)
 }

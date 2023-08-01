@@ -11,17 +11,20 @@ import avatarTenth from "../../public/images/avatars/avatar-10.png"
 import avatarEleventh from "../../public/images/avatars/avatar-11.png"
 import avatarTwelveth from "../../public/images/avatars/avatar-12.png"
 import { useNavigate } from "@remix-run/react"
+import {StringUtils} from "~/utils/StringUtils";
+import {useSnapshot} from "valtio";
+import {store} from "~/state/proxy";
 
 
 export const AccountIcon = () => {
     const navigate = useNavigate();
+    const {account: { address }} = useSnapshot(store);
     return (
-        <div className="flex flex-row items-center cursor-pointer" onClick={() => navigate('/account')}>
+        <div className="flex flex-row items-center cursor-pointer border-primary border p-2 rounded-md" onClick={() => navigate('/account')}>
             <div className="w-8 h-8 rounded-full overflow-hidden mr-3">
                 <img src={avatarFirst} alt="avatar-img" />
             </div>
-            <p className="text-primary mr-3">rhPEtx...DJYi</p>
-            <i className="ri-arrow-down-s-line text-3xl font-semibold"></i>
+            <p className="text-primary mr-3">{StringUtils.truncateString(address || '',6, 4)}</p>
         </div>
 
     )
