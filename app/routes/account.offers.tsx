@@ -1,7 +1,6 @@
-import {Outlet} from "@remix-run/react";
-import {ListNavbar} from "~/components/ListNavbar";
-import {TokenCardList} from "~/components/TokenCardList";
 import {CardType, ITokenCard} from "~/components/TokenOfferCard";
+import {TokenCardList} from "~/components/TokenCardList";
+import {Outlet} from "@remix-run/react";
 
 const tokenOfferCards: ITokenCard[] = [
     {
@@ -39,36 +38,15 @@ const tokenOfferCards: ITokenCard[] = [
         maxDuration: 75,
         cardType: CardType.AWAITING_RENTER,
     },
-    {
-        name: "Black Token",
-        id: "def789",
-        dailyPrice: 25,
-        maxDuration: 120,
-        cardType: CardType.AWAITING_RENTER,
-    },
-    {
-        name: "Retro Item",
-        id: 789,
-        dailyPrice: 14,
-        maxDuration: 60,
-        cardType: CardType.AWAITING_RENTER,
-    },
-    {
-        name: "Old Head",
-        id: "mno234",
-        dailyPrice: 22,
-        maxDuration: 90,
-        cardType: CardType.AWAITING_RENTER,
-    },
 ];
-const OffersRoute = () => {
+
+const AccountOffersRoute = () => {
     return (
         <div>
-            <ListNavbar/>
             <TokenCardList items={tokenOfferCards}/>
-            <Outlet/>
+            <Outlet />
         </div>
     )
 }
 
-export default OffersRoute;
+export default AccountOffersRoute;

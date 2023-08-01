@@ -1,4 +1,4 @@
-import { Outlet } from "@remix-run/react";
+import {NavLink, Outlet} from "@remix-run/react";
 
 const AccountRoute = () => {
     return (
@@ -23,8 +23,17 @@ const AccountRoute = () => {
                     </div>
                 </div>
             </div>
-            
-            <Outlet />
+            <div className="flex flex-row justify-start mt-14">
+                <NavLink to="/account/my-wallet" className="border-primary border-2 rounded-md px-3 py-2 mr-6">My
+                    Wallet</NavLink>
+                <NavLink to="/account/lending"
+                         className="border-primary border-2 rounded-md px-3 py-2 mr-6">Lending</NavLink>
+                <NavLink to="/account/renting"
+                         className="border-primary border-2 rounded-md px-3 py-2 mr-6">Renting</NavLink>
+                <NavLink to="/account/offers"
+                         className="border-primary border-2 rounded-md px-3 py-2 mr-6">Offers</NavLink>
+            </div>
+            <Outlet/>
         </div>
     )
 }
