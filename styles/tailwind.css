@@ -28,6 +28,10 @@ input::placeholder {
     font-family: Outfit, sans-serif !important;
 }
 
+input:disabled {
+    background-color: theme(colors.input-disabled);
+}
+
 .vertical-line {
     width: 1px;
     height: auto;

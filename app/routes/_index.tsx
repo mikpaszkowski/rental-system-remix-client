@@ -1,5 +1,7 @@
-import type {V2_MetaFunction} from "@remix-run/node";
+import type {V2_MetaFunction, LoaderArgs, LoaderFunction} from "@remix-run/node";
+import {json, redirect} from "@remix-run/node";
 import {Button} from "~/components/Button";
+import {getSession} from "../../sessions/session";
 
 export const meta: V2_MetaFunction = () => {
     return [
@@ -7,6 +9,19 @@ export const meta: V2_MetaFunction = () => {
         {name: "description", content: "Welcome to Remix!"},
     ];
 };
+
+export const loader: LoaderFunction = async ({request}: LoaderArgs) => {
+    const session = await getSession(
+        request.headers.get("Cookie")
+    );
+
+    if (session.has('accountAddress')) {
+        return redirect('/account')
+    }
+    return json({
+        ok: true
+    })
+}
 
 export default function Index() {
     return (

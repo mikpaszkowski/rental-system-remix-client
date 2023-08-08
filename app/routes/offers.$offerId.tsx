@@ -1,4 +1,5 @@
-import {json, LoaderArgs} from "@remix-run/node";
+import type { LoaderArgs} from "@remix-run/node";
+import {json} from "@remix-run/node";
 import {Link, useLoaderData} from "@remix-run/react";
 import defaultTokenImg from "../../public/images/token/default-token-img.jpg"
 import {Button} from "~/components/Button";
@@ -12,7 +13,7 @@ const OfferRoute = () => {
     const {offerId} = useLoaderData<typeof loader>();
     return (
         <div
-            className="absolute top-0 right-0 h-full w-1/2 bg-dialog text-primary border-light-purple border-2 rounded-l-xl overflow-hidden">
+            className="fixed top-0 right-0 h-full w-1/2 bg-dialog text-primary border-light-purple border-2 rounded-l-xl overflow-hidden">
             <div className="relative flex flex-col justify-between w-full h-full">
                 <div className="relative h-1/2 w-full">
                     <Link to="/offers" className="absolute right-3 top-3 text-4xl"><i

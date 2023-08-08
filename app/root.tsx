@@ -1,8 +1,44 @@
-import type {LinksFunction} from "@remix-run/node";
-import {Links, LiveReload, Meta, Outlet, Scripts, ScrollRestoration, useLocation,} from "@remix-run/react";
+import type {ActionArgs, LinksFunction, LoaderArgs, LoaderFunction} from "@remix-run/node";
+import {json, redirect} from "@remix-run/node";
+import {
+    Links,
+    LiveReload,
+    Meta,
+    Outlet,
+    Scripts,
+    ScrollRestoration,
+    useLoaderData,
+    useLocation,
+} from "@remix-run/react";
 import stylesheet from "~/styles/tailwind.css"
 import type {LinkDescriptor} from "@remix-run/server-runtime/dist/links";
 import {Navbar} from "./components/Navbar";
+import {commitSession, destroySession, getSession} from "../sessions/session";
+
+export const loader: LoaderFunction = async ({request}: LoaderArgs) => {
+    const session = await getSession(
+        request.headers.get("Cookie")
+    );
+
+    return json({
+        address: session.get('accountAddress'),
+    }, {
+        headers: {
+            'Set-Cookie': await commitSession(session),
+        }
+    });
+}
+
+export const action = async ({request}: ActionArgs) => {
+    const session = await getSession(
+        request.headers.get("Cookie")
+    );
+    return redirect('/', {
+        headers: {
+            'Set-Cookie': await destroySession(session),
+        }
+    })
+}
 
 const fontLinks: LinkDescriptor[] = [
     {rel: 'preconnect', href: 'https://fonts.googleapis.com'},
@@ -21,6 +57,7 @@ export const links: LinksFunction = () => [{rel: "stylesheet", href: stylesheet}
 
 export default function App() {
     const {pathname} = useLocation();
+    const {address} = useLoaderData<typeof loader>();
     return (
         <html lang="en">
         <head>
@@ -32,7 +69,7 @@ export default function App() {
         </head>
         <body
             className={`bg-custom bg-no-repeat bg-cover bg-center w-screen h-screen relative ${pathname !== "/" ? 'dark-bg' : ''}`}>
-        <Navbar/>
+        <Navbar address={address} isAuthenticated={!!address}/>
         <Outlet/>
         <ScrollRestoration/>
         <Scripts/>

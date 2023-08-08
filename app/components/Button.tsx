@@ -2,7 +2,7 @@
 interface IButtonProps extends React.DetailedHTMLProps<React.ButtonHTMLAttributes<HTMLButtonElement>, HTMLButtonElement> {
     name: string;
     iconName?: string;
-    onClick: () => void;
+    onClick?: () => void;
     secondary?: boolean;
     buttonSize?: ButtonSize;
 }

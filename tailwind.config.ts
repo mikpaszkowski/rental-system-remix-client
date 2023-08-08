@@ -10,6 +10,7 @@ export default {
       'darken-regular-purple': '#42377e',
       'light-purple': '#AEADFF',
       'primary': '#E8EAFA',
+      'input-disabled': '#CCCCCC',
       'secondary': '#828282',
       'btn-secondary': '#353535',
       'btn-secondary-focus': '#242424',
